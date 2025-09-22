@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'features/counter/data/datasources/counter_local_datasource.dart';
+import 'features/counter/data/repositories/counter_repository_impl.dart';
+import 'features/counter/domain/usecases/increment_counter.dart';
+import 'features/counter/presentation/provider/counter_notifier.dart';
 
 void main() {
   runApp(const CounterApp());
@@ -10,24 +14,15 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final repository = CounterRepositoryImpl(CounterLocalDataSourceImpl());
     return ChangeNotifierProvider(
-      create: (_) => CounterModel(),
+      create: (_) => CounterNotifier(IncrementCounter(repository)),
       child: MaterialApp(
-        title: 'Counter with Provider',
+        title: 'Counter Clean Architecture',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const CounterPage(),
       ),
     );
-  }
-}
-
-class CounterModel extends ChangeNotifier {
-  int _count = 0;
-  int get count => _count;
-
-  void increment() {
-    _count++;
-    notifyListeners();
   }
 }
 
@@ -36,14 +31,14 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counter = context.watch<CounterModel>().count;
+    final counterValue = context.watch<CounterNotifier>().counter.value;
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
       body: Center(
-        child: Text('$counter', style: Theme.of(context).textTheme.headlineMedium),
+        child: Text('$counterValue', style: Theme.of(context).textTheme.headlineMedium),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.read<CounterModel>().increment(),
+        onPressed: () => context.read<CounterNotifier>().increment(),
         child: const Icon(Icons.add),
       ),
     );
