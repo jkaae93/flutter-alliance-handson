@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'features/counter/data/datasources/counter_local_datasource.dart';
-import 'features/counter/data/repositories/counter_repository_impl.dart';
-import 'features/counter/domain/usecases/increment_counter.dart';
-import 'features/counter/presentation/provider/counter_notifier.dart';
+import 'package:counter/counter/counter_local_datasource.dart';
+import 'package:counter/counter/counter_repository_impl.dart';
+import 'package:counter/counter/increment_counter.dart';
+import 'package:counter/counter/counter_notifier.dart';
 
 void main() {
   runApp(const CounterApp());
