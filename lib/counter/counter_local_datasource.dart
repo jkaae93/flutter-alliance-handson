@@ -1,4 +1,4 @@
-import '../models/counter_model.dart';
+import 'package:counter/counter/counter_model.dart';
 
 abstract class CounterLocalDataSource {
   CounterModel getCounter();
@@ -17,3 +17,4 @@ class CounterLocalDataSourceImpl implements CounterLocalDataSource {
     return _counter;
   }
 }
+
