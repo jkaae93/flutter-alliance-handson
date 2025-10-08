@@ -1,6 +1,6 @@
-import '../../../../core/usecase.dart';
-import '../entities/counter.dart';
-import '../repositories/counter_repository.dart';
+import 'package:counter/usecase.dart';
+import 'package:counter/counter/counter.dart';
+import 'package:counter/counter/counter_repository.dart';
 
 class IncrementCounter implements UseCase<Counter, NoParams> {
   final CounterRepository repository;
@@ -12,3 +12,4 @@ class IncrementCounter implements UseCase<Counter, NoParams> {
     return repository.increment();
   }
 }
+

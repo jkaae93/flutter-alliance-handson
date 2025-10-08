@@ -1,6 +1,6 @@
-import '../../domain/entities/counter.dart';
-import '../../domain/repositories/counter_repository.dart';
-import '../datasources/counter_local_datasource.dart';
+import 'package:counter/counter/counter.dart';
+import 'package:counter/counter/counter_local_datasource.dart';
+import 'package:counter/counter/counter_repository.dart';
 
 class CounterRepositoryImpl implements CounterRepository {
   final CounterLocalDataSource dataSource;
@@ -13,3 +13,4 @@ class CounterRepositoryImpl implements CounterRepository {
   @override
   Counter increment() => dataSource.increment();
 }
+

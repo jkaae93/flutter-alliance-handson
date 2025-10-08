@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../domain/entities/counter.dart';
-import '../../domain/usecases/increment_counter.dart';
-import '../../../../core/usecase.dart';
+import 'package:counter/counter/counter.dart';
+import 'package:counter/counter/increment_counter.dart';
+import 'package:counter/usecase.dart';
 
 class CounterNotifier extends ChangeNotifier {
   Counter _counter = const Counter(0);
@@ -17,3 +16,4 @@ class CounterNotifier extends ChangeNotifier {
     notifyListeners();
   }
 }
+

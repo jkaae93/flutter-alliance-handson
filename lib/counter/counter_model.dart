@@ -1,4 +1,4 @@
-import '../../domain/entities/counter.dart';
+import 'package:counter/counter/counter.dart';
 
 class CounterModel extends Counter {
   const CounterModel(int value) : super(value);
@@ -9,3 +9,4 @@ class CounterModel extends Counter {
 
   Counter toEntity() => Counter(value);
 }
+
