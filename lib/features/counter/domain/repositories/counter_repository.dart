@@ -1,6 +1,6 @@
 import '../entities/counter.dart';
 
 abstract class CounterRepository {
-  Counter getCounter();
-  Counter increment();
+  Future<Counter> getCounter();
+  Future<Counter> increment();
 }
