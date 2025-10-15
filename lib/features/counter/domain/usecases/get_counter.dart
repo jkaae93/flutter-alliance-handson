@@ -2,13 +2,13 @@ import '../../../../core/usecase.dart';
 import '../entities/counter.dart';
 import '../repositories/counter_repository.dart';
 
-class IncrementCounter implements UseCase<Future<Counter>, NoParams> {
+class GetCounter implements UseCase<Future<Counter>, NoParams> {
   final CounterRepository repository;
 
-  IncrementCounter(this.repository);
+  GetCounter(this.repository);
 
   @override
   Future<Counter> call(NoParams params) {
-    return repository.increment();
+    return repository.getCounter();
   }
 }

@@ -8,8 +8,14 @@ class CounterRepositoryImpl implements CounterRepository {
   CounterRepositoryImpl(this.dataSource);
 
   @override
-  Counter getCounter() => dataSource.getCounter();
+  Future<Counter> getCounter() async {
+    final model = await dataSource.getCounter();
+    return model.toEntity();
+  }
 
   @override
-  Counter increment() => dataSource.increment();
+  Future<Counter> increment() async {
+    final model = await dataSource.increment();
+    return model.toEntity();
+  }
 }
